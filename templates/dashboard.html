@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class=page>
+
+  <h1>Active Sessions</h1>
+
+  <ul class="sessions">
+  {% for session in sessions %}
+  <li>
+        <h2>{{ session.hash }}</h2>
+        <a href="/session/{{ session.hash }}"> Accept Support Request </a>
+  </li>
+  {% else %}
+    <li><em>Unbelievable.  No sessions here so far</em>
+  {% endfor %}
+  </ul>
+
+</div>
+
+<script type="text/javascript">
+    window.setTimeout(function() {
+            window.location.href = window.location.href;
+        }, 3000);
+</script>
+
+{% endblock %}

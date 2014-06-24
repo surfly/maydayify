@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class=page>
+  <h1>Mayday-ify a website</h1>
+
+  <form action="/session/{{ hash }}" method=post>
+        Website: <input type="text" size=50 name="url"></input>
+        <input type="submit" value="Submit">
+  </form>
+</div>
+{% endblock %}

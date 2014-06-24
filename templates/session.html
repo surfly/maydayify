@@ -1,0 +1,19 @@
+
+{% extends "layout.html" %}
+{% block body %}
+<iframe id="sessionframe" scrolling="auto" marginwidth="0" marginheight="0" height="100%" width="100%" frameborder="0" vspace="0" hspace="0" style="overflow:auto; width:100%;height:100%;" src="{{ session_url }}"></iframe>
+
+<div id="videobox">
+    <iframe src=/stream/{{ tokbox_session }}?role={{ role }} height="100%" width="100%" frameborder="0" vspace="0" marginwidth="0" marginheight="0" vspace="0" hspace="0"></iframe>
+</div>
+
+<script type="text/javascript">
+    var sessionframe = document.getElementById('sessionframe');
+
+    function give_control(target) {
+        console.log("Giving control...");
+        var data = {"command": "control", "to": target};
+        sessionframe.contentWindow.postMessage(JSON.stringify(data), "*");
+    }
+</script>
+{% endblock %}
